@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+{% block title %}Mi Colección{% endblock %}
+{% block content %}
+<h1>Mi Colección</h1>
+
+{% if coleccion %}
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Título</th>
+<th>Plataforma</th>
+<th>Género</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+{% for juego in coleccion %}
+<tr>
+<td>{{ juego.titulo }}</td>
+<td>{{ juego.plataforma }}</td>
+<td>{{ juego.genero }}</td>
+<td>{{ juego.estado }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>No tienes juegos en tu colección.</p>
+{% endif %}
+
+<p><a class="btn btn-primary mt-3" href="videojuegos.php">Volver a lista de juegos</a></p>
+{% endblock %}

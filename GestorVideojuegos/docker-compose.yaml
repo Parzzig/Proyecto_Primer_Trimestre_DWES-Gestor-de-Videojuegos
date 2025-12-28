@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: dwes-web
+    build: .
+    volumes:
+      - ./:/var/www/html   # Monta todo el proyecto
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  db:
+    container_name: dwes-bd
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lista_videojuegos
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3305:3306"
+
+  phpmyadmin:
+    container_name: dwes-phpmyadmin
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8888:80"
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
