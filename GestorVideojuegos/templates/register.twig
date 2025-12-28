@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+<h1>Registro de Usuario</h1>
+<form method="post" autocomplete="off">
+    <input class="form-control" type="text" name="nombre" placeholder="Nombre" required /><br/>
+    <input class="form-control" type="email" name="email" placeholder="Email" required /><br/>
+    <input class="form-control" type="password" name="password" placeholder="Contraseña" required /><br/>
+    <input class="form-control" type="password" name="password2" placeholder="Repetir contraseña" required /><br/>
+    {% if mensaje %}
+        <div class="alert alert-info">{{ mensaje|raw }}</div>
+    {% endif %}
+    <button class="btn btn-success btn-add">Registrar</button>
+</form>
+{% endblock %}

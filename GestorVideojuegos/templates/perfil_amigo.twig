@@ -1,0 +1,35 @@
+{% extends "layout.twig" %}
+
+{% block title %}Colección de {{ amigo.nombre }}{% endblock %}
+
+{% block content %}
+<h2>🎮 Colección de {{ amigo.nombre }}</h2>
+
+{% if juegos is empty %}
+    <p>Este usuario no tiene juegos en su colección.</p>
+{% else %}
+<table class="table table-gamer">
+    <tr>
+        <th>Título</th>
+        <th>Plataforma</th>
+        <th>Género</th>
+        <th>Estado</th>
+        <th>Su puntuación</th>
+        <th>Media</th>
+    </tr>
+
+    {% for j in juegos %}
+    <tr>
+        <td>{{ j.titulo }}</td>
+        <td>{{ j.plataforma }}</td>
+        <td>{{ j.genero }}</td>
+        <td>{{ j.estado }}</td>
+        <td>{{ j.mi_puntuacion|default('–') }}</td>
+        <td>{{ j.media_puntuacion|default('–') }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+<a href="amigos.php" class="btn btn-secondary mt-3">⬅ Volver a amigos</a>
+{% endblock %}
