@@ -7,3 +7,5 @@ Esta web es un Gestor de videojuegos donde puedes crear una cuenta para tener un
 Tambien puedes añadir amigos enviando solicitudes de amistad o acepatando las que te envien para poder ver vuestras listas de videojuegos mutuamente.
 
 Usuario ya creado: email: prueba@gmail.com contraseña: 1234
+
+URL de la aplicación:  http://ec2-34-230-103-39.compute-1.amazonaws.com:8080
